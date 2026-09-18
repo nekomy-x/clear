@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USD/RUB 2026 — прогноз, график и исторические аналоги</title>
+    <meta
+      name="description"
+      content="Локальный дашборд по курсу доллара к рублю: свежие ориентиры, аналитические сценарии на 2026 год, исторические аналоги 2014, 2022 и 2023–2024."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <div class="backdrop backdrop--left"></div>
+    <div class="backdrop backdrop--right"></div>
+    <div class="grain"></div>
+
+    <main class="page-shell">
+      <section class="hero">
+        <div class="hero__content">
+          <p class="eyebrow">Обновлено: 19 марта 2026</p>
+          <h1>USD/RUB: что происходит сейчас и на какой курс это похоже</h1>
+          <p class="hero__text">
+            Это локальный аналитический экран по курсу доллара к рублю. Внутри
+            есть текущий ориентир Банка России, мой сценарный прогноз на конец
+            2026 года, график и сравнение с похожими стрессовыми фазами 2014,
+            2022 и 2023–2024 годов.
+          </p>
+
+          <div class="hero__actions">
+            <a class="hero__button hero__button--primary" href="#forecast">
+              Смотреть прогноз
+            </a>
+            <a class="hero__button hero__button--ghost" href="#history">
+              Сравнить с прошлым
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__panel">
+          <div class="signal-card">
+            <span class="signal-card__label">Официальный курс ЦБ</span>
+            <strong class="signal-card__value">83.13 ₽</strong>
+            <span class="signal-card__meta">на 19.03.2026</span>
+          </div>
+          <div class="signal-card">
+            <span class="signal-card__label">Медиана опроса ЦБ</span>
+            <strong class="signal-card__value">84.0 ₽</strong>
+            <span class="signal-card__meta">средний курс 2026</span>
+          </div>
+          <div class="signal-card signal-card--accent">
+            <span class="signal-card__label">Мой базовый сценарий</span>
+            <strong class="signal-card__value">86–92 ₽</strong>
+            <span class="signal-card__meta">коридор на конец 2026</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-block">
+        <article class="panel panel--chart" id="forecast">
+          <div class="panel__head">
+            <div>
+              <p class="section-kicker">График</p>
+              <h2 id="chartTitle">Сценарии курса USD/RUB</h2>
+            </div>
+            <div class="toolbar">
+              <div class="toolbar__group" role="tablist" aria-label="Режим графика">
+                <button class="chip chip--active" type="button" data-mode="forecast">
+                  Прогноз
+                </button>
+                <button class="chip" type="button" data-mode="history">
+                  История
+                </button>
+              </div>
+              <div
+                class="toolbar__group toolbar__group--secondary"
+                id="scenarioControls"
+                role="tablist"
+                aria-label="Сценарий прогноза"
+              >
+                <button class="chip chip--tone chip--active" type="button" data-scenario="base">
+                  Базовый
+                </button>
+                <button class="chip chip--tone" type="button" data-scenario="optimistic">
+                  Сильный рубль
+                </button>
+                <button class="chip chip--tone" type="button" data-scenario="stress">
+                  Стресс
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-wrap">
+            <canvas id="trendChart" width="1100" height="540" aria-label="График курса USD/RUB"></canvas>
+            <div class="chart-tooltip" id="chartTooltip" hidden></div>
+          </div>
+
+          <div class="legend" id="chartLegend"></div>
+        </article>
+
+        <aside class="panel panel--signals">
+          <div class="panel__head">
+            <div>
+              <p class="section-kicker">Сейчас</p>
+              <h2>Ключевые сигналы рынка</h2>
+            </div>
+          </div>
+
+          <div class="news-stack">
+            <article class="news-card">
+              <span class="news-card__date">19.03.2026</span>
+              <h3>Официальный USD: 83.1259 ₽</h3>
+              <p>
+                На 20.03.2026 Банк России установил 84.8379 ₽. Курс остается
+                ниже пиков конца 2024 года, но волатильность не исчезла.
+              </p>
+            </article>
+
+            <article class="news-card">
+              <span class="news-card__date">13.02.2026</span>
+              <h3>Ключевая ставка: 15.5%</h3>
+              <p>
+                ЦБ снизил ставку, но оставил условия жесткими. Это поддерживает
+                рубль краткосрочно, но не отменяет давление от слабого роста и
+                бюджета.
+              </p>
+            </article>
+
+            <article class="news-card">
+              <span class="news-card__date">06–10.03.2026</span>
+              <h3>Медианный прогноз аналитиков ЦБ</h3>
+              <p>
+                Средний курс USD/RUB в 2026 году ожидается на уровне 84.0 ₽, в
+                2027 году 92.3 ₽, в 2028 году 97.8 ₽.
+              </p>
+            </article>
+
+            <article class="news-card">
+              <span class="news-card__date">С 13.06.2024</span>
+              <h3>Новый стандарт формирования курса</h3>
+              <p>
+                После санкций против Московской биржи официальный курс доллара
+                и евро считается по внебиржевому рынку, а не по биржевым
+                сделкам.
+              </p>
+            </article>
+          </div>
+        </aside>
+      </section>
+
+      <section class="panel panel--scenario-cards">
+        <div class="panel__head">
+          <div>
+            <p class="section-kicker">Прогноз</p>
+            <h2>Три сценария на конец 2026 года</h2>
+          </div>
+        </div>
+
+        <div class="scenario-grid">
+          <article class="scenario-card scenario-card--base">
+            <span class="scenario-card__badge">Базовый</span>
+            <h3>86–92 ₽ за доллар</h3>
+            <p>
+              Самый вероятный режим: ставка еще долго остается высокой,
+              рубль весной держится лучше ожиданий, но к концу года начинает
+              слабеть из-за бюджета, импорта и менее комфортной экспортной
+              выручки.
+            </p>
+          </article>
+
+          <article class="scenario-card scenario-card--optimistic">
+            <span class="scenario-card__badge">Сильный рубль</span>
+            <h3>78–84 ₽ за доллар</h3>
+            <p>
+              Возможен, если нефть остается высокой, ЦБ снижает ставку очень
+              медленно, а внешняя торговля дает стабильный приток валюты.
+              Сейчас это не базовый, а благоприятный сценарий.
+            </p>
+          </article>
+
+          <article class="scenario-card scenario-card--stress">
+            <span class="scenario-card__badge">Стресс</span>
+            <h3>95–105 ₽ за доллар</h3>
+            <p>
+              Реализуется, если ухудшатся условия внешней торговли, усилятся
+              санкции по нефтяной логистике, а бюджетное давление станет
+              сильнее. Это не паника 2022 года, а более медленное, структурное
+              ослабление.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel panel--history" id="history">
+        <div class="panel__head">
+          <div>
+            <p class="section-kicker">Исторические аналоги</p>
+            <h2>На что текущая ситуация похожа больше всего</h2>
+          </div>
+        </div>
+
+        <div class="history-grid">
+          <article class="history-card">
+            <div class="history-card__topline">
+              <span class="history-card__year">2014–2015</span>
+              <span class="history-card__tag">неполный аналог</span>
+            </div>
+            <h3>Похоже по связке “нефть + санкции”</h3>
+            <p>
+              Тогда рубль резко ослаб на фоне падения нефти и санкционного
+              шока, а Банк России 16 декабря 2014 поднял ключевую ставку до
+              17%. Похоже то, что и сейчас внешний контур важнее внутренних
+              обещаний.
+            </p>
+            <p>
+              Но в 2026 году нет перехода к плавающему курсу как новой
+              политике. Этот режим уже давно существует, а рынок успел
+              адаптироваться.
+            </p>
+          </article>
+
+          <article class="history-card">
+            <div class="history-card__topline">
+              <span class="history-card__year">2022</span>
+              <span class="history-card__tag">самый резкий шок</span>
+            </div>
+            <h3>Похоже по масштабу геополитического фактора</h3>
+            <p>
+              В марте 2022 официальный курс доходил до 120.38 ₽, а ставка была
+              экстренно поднята до 20%. Затем рубль аномально укрепился из-за
+              ограничений и обвала импорта.
+            </p>
+            <p>
+              В 2026 году ситуация другая: рынок не в остром шоке, а в фазе
+              длинного приспособления. Поэтому вероятнее не всплеск к 120+,
+              а коридорное движение с медленным дрейфом вверх.
+            </p>
+          </article>
+
+          <article class="history-card history-card--closest">
+            <div class="history-card__topline">
+              <span class="history-card__year">2023–2024</span>
+              <span class="history-card__tag history-card__tag--accent">самый близкий аналог</span>
+            </div>
+            <h3>Больше всего похоже на режим торгового и бюджетного давления</h3>
+            <p>
+              В августе 2023 доллар доходил до 101.04 ₽, в конце ноября 2024 —
+              до 109.58 ₽. Тогда рубль слабел не из-за одной панической точки,
+              а из-за комбинации торговли, бюджета и ожиданий.
+            </p>
+            <p>
+              Именно этот тип движения ближе к 2026 году: длинная высокая
+              ставка, ограниченный рост, хуже нефтегазовый поток и более
+              осторожный, но не сломанный валютный рынок.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="grid-block grid-block--bottom">
+        <article class="panel">
+          <div class="panel__head">
+            <div>
+              <p class="section-kicker">Новый режим 2026</p>
+              <h2>Чем нынешний рынок отличается от старых кризисов</h2>
+            </div>
+          </div>
+
+          <div class="standards-list">
+            <article class="standard-card">
+              <h3>Курс считается по OTC-рынку</h3>
+              <p>
+                После июня 2024 официальный доллар и евро формируются по
+                внебиржевым данным банков. Это уже не та же рыночная механика,
+                что была до санкций против Мосбиржи.
+              </p>
+            </article>
+
+            <article class="standard-card">
+              <h3>Высокая ставка стала длинной, а не аварийной</h3>
+              <p>
+                В 2022 ставка 20% была шоковой мерой. В 2026 жесткие деньги
+                превратились в затяжной режим охлаждения экономики.
+              </p>
+            </article>
+
+            <article class="standard-card">
+              <h3>Бюджет влияет на курс сильнее</h3>
+              <p>
+                Нефтегазовые доходы слабее, ликвидная часть ФНБ уже не такая
+                комфортная, а значит валютный рынок чаще чувствует бюджетные
+                ограничения через ожидания.
+              </p>
+            </article>
+
+            <article class="standard-card">
+              <h3>Нефть важна, но одной нефти уже мало</h3>
+              <p>
+                Теперь имеют значение не только цены на нефть, но и скидки,
+                логистика, санкции на перевозки, расчеты через дружественные
+                юрисдикции и поведение импорта.
+              </p>
+            </article>
+          </div>
+        </article>
+
+        <article class="panel panel--sources">
+          <div class="panel__head">
+            <div>
+              <p class="section-kicker">Источники</p>
+              <h2>На чем основан этот экран</h2>
+            </div>
+          </div>
+
+          <ul class="source-list">
+            <li>
+              <a href="https://www.cbr.ru/key-indicators/" target="_blank" rel="noreferrer">
+                Банк России: ключевые показатели, курс USD и инфляция
+              </a>
+            </li>
+            <li>
+              <a href="https://www.cbr.ru/press/keypr/" target="_blank" rel="noreferrer">
+                Банк России: решение по ключевой ставке от 13.02.2026
+              </a>
+            </li>
+            <li>
+              <a href="https://www.cbr.ru/statistics/ddkp/mo_br/" target="_blank" rel="noreferrer">
+                Банк России: макроопрос марта 2026
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://cbr.ru/dkp/faq/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Банк России: как считается курс после санкций против Мосбиржи
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://cbr.ru/currency_base/dynamics/?UniDbQuery.From=01.01.2005&UniDbQuery.Posted=True&UniDbQuery.To=28.02.2022&UniDbQuery.VAL_NM_RQ=R01235&UniDbQuery.mode=1&UniDbQuery.so=1"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Банк России: история курса USD, эпизод 2014 года
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.cbr.ru/currency_base/dynamics/?UniDbQuery.From=01.01.2022&UniDbQuery.Posted=True&UniDbQuery.To=23.11.2023&UniDbQuery.VAL_NM_RQ=R01235&UniDbQuery.mode=1&UniDbQuery.so=1"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Банк России: история курса USD, эпизоды 2022 и 2023 года
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.cbr.ru/Localization/SwitchLanguage?from=ru-RU&to=en-CB&url=%2Fcurrency_base%2Fdynamics%2F%3FUniDbQuery.Posted%3DTrue%26UniDbQuery.so%3D1%26UniDbQuery.mode%3D1%26UniDbQuery.date_req1%3D%26UniDbQuery.date_req2%3D%26UniDbQuery.VAL_NM_RQ%3DR01235%26UniDbQuery.From%3D15.11.2024%26UniDbQuery.To%3D06.12.2024"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Банк России: история курса USD, эпизод конца 2024 года
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://uk.finance.yahoo.com/news/russias-oil-gas-revenue-seen-121811636.html"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Reuters: нефтегазовые доходы и бюджетное давление в начале 2026
+              </a>
+            </li>
+          </ul>
+
+          <p class="disclaimer">
+            Это не инвестиционная рекомендация. Блок “мой прогноз” является
+            аналитическим предположением на базе официальных данных и текущих
+            новостей по состоянию на 19 марта 2026 года.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
